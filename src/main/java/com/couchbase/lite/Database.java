@@ -350,6 +350,16 @@ public class Database implements StoreDelegate {
      * The document will be saved to the database when you call -createRevision: on it.
      */
     @InterfaceAudience.Public
+    public Document createDocument(String name) {
+        return getDocument(name);
+    }
+
+    @InterfaceAudience.Public
+    public Document createDocumentWithSuffix(String suffix) {
+        return getDocument(suffix+"_"+Misc.CreateUUID());
+    }
+
+    @InterfaceAudience.Public
     public Document createDocument() {
         return getDocument(Misc.CreateUUID());
     }
